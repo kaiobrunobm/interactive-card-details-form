@@ -1,6 +1,5 @@
 import React from "react";
 import InputMask from "react-input-mask";
-import { BsDot, BsMask } from "react-icons/bs";
 
 const FormSection = ({
   setCardName,
@@ -26,7 +25,7 @@ const FormSection = ({
             placeholder="e.g. Jane Appleseed"
             required={true}
             onChange={(event) => setCardName(event.currentTarget.value)}
-            className="border-[1px] border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient"
+            className=" border-[1px] border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient focus:invalid:border-errorColor"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -45,7 +44,7 @@ const FormSection = ({
             placeholder="e.g. 1234 5678 9123 0000"
             required={true}
             onChange={(event) => setCardNumber(event.currentTarget.value)}
-            className="border-[1px] border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient"
+            className=" border-[1px] border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient focus:invalid:border-errorColor"
           />
         </div>
         <div className="flex gap-2">
@@ -56,27 +55,30 @@ const FormSection = ({
             >
               Exp.date (mm/yy)
             </label>
-            <div className="flex gap-2">
-              <input
+
+            <div className=" flex gap-2">
+              <InputMask
+                mask="99"
+                maskChar=""
                 type="text"
                 id="expDateMonth"
                 name="expDateMonth"
                 placeholder="MM"
-                maxLength="2"
                 required={true}
                 onChange={(event) => setExpDateMonth(event.currentTarget.value)}
-                className="w-[5rem] border-[1px] text-center border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient"
+                className="w-[5rem] border-[1px] text-center border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient focus:invalid:border-errorColor"
               />
 
-              <input
+              <InputMask
+                mask="99"
+                maskChar=""
                 type="text"
                 id="expDate"
                 name="expDateYear"
                 placeholder="YY"
-                maxLength="2"
                 required={true}
                 onChange={(event) => setExpDateYear(event.currentTarget.value)}
-                className="w-[5rem] border-[1px] text-center border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient"
+                className="w-[5rem] border-[1px] text-center border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient focus:invalid:border-errorColor"
               />
             </div>
           </div>
@@ -87,15 +89,16 @@ const FormSection = ({
             >
               cvc
             </label>
-            <input
+            <InputMask
+              mask="9999"
+              maskChar=""
               type="text"
               id="cvc"
               name="cvc"
               placeholder="e.g. 123"
-              maxLength="3"
               required={true}
               onChange={(event) => setCvcNumber(event.currentTarget.value)}
-              className="w-[9rem] border-[1px] border-lightGrayish rounded-lg p-2 focus:outline-none focus:border-secondGradient"
+              className="w-[9rem] border-[1px] border-lightGrayish rounded-lg p-2 focus:outline-none focus:border-secondGradient focus:invalid:border-errorColor"
             />
           </div>
         </div>
