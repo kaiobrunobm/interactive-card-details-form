@@ -20,15 +20,12 @@ const Card = ({
 
       <div className="text-White flex-col tracking-widest fixed left-10 top-[11rem] z-10 lg:top-[14rem] lg:left-[15.7rem]">
         <img src="/card-logo.svg" alt="MasterCard" className="w-14 mb-5" />
-        <p>
-          {cardNumber
-            .replace(/\s/g, "")
-            .replace(/(\d{4})/g, "$1 ")
-            .trim()}
-        </p>
+        <p>{cardNumber}</p>
         <span className="flex text-[12px] uppercase justify-between mt-5">
-          <p>{cardName}</p>
-          <p>
+          <p className={cardNumber === "" ? "mt-[2.9rem] mr-[3rem]" : "mr-20"}>
+            {cardName}
+          </p>
+          <p className="fixed left-60 lg:left-[28rem] lg:top-[20.1rem]">
             {expDateMonth}/{expDateYear}
           </p>
         </span>

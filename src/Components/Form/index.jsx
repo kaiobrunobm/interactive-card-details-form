@@ -1,14 +1,12 @@
 import React from "react";
+import InputMask from "react-input-mask";
+import { BsDot, BsMask } from "react-icons/bs";
 
 const FormSection = ({
   setCardName,
-  cardName,
   setCardNumber,
-  cardNumber,
   setExpDateMonth,
-  expDateMonth,
   setExpDateYear,
-  expDateYear,
   setCvcNumber,
 }) => {
   return (
@@ -38,17 +36,14 @@ const FormSection = ({
           >
             Card number
           </label>
-          <input
+          <InputMask
+            mask="9999 9999 9999 9999"
+            maskChar=""
             type="text"
             id="cardNumber"
             name="cardNumber"
             placeholder="e.g. 1234 5678 9123 0000"
-            maxLength="19"
             required={true}
-            value={cardNumber
-              .replace(/\s/g, "")
-              .replace(/(\d{4})/g, "$1 ")
-              .trim()}
             onChange={(event) => setCardNumber(event.currentTarget.value)}
             className="border-[1px] border-lightGrayish rounded-lg p-2 mb-5 focus:outline-none focus:border-secondGradient"
           />
